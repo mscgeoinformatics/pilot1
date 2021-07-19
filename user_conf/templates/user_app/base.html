@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+
+
+      <nav class="navbar navbar-default navbar-static navbar-inverse">
+         <ul class="nav navbar-nav">
+           <li><a class="navbar-brand" href="{% url 'user_app:index' %}">Home</a></li>
+           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+           <li><a class="navbar-link" href="{% url 'user_app:registration' %}">Registration</a></li>
+           {% if user.is_authenticated %}
+           <li><a class="navbar-link" href="{% url 'user_app:user_logout' %}">Logout</a></li>
+           <li> <a href="{% url 'user_app:special_page' %}"> Special page</a>  </li>
+           {% else %}
+           <li><a class="navbar-link" href="{% url 'user_app:user_login' %}">Login</a></li>
+           {% endif %}
+
+
+
+      </nav>
+<div class="container">
+  {% block body_block %}
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+  </body>
+</html>
